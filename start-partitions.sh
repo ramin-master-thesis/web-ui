@@ -1,0 +1,5 @@
+docker run --rm -d -p 5000:5000 -v $(pwd)/data:/app/data raminqaf/salsa:1.4 python -m server.app --content-index --partition-method single_partition & \
+docker run --rm -d -p 5001:5000 -v $(pwd)/data:/app/data raminqaf/salsa:1.4 python -m server.app --content-index --partition-method murmur2 --partition-number 0 & \
+docker run --rm -d -p 5002:5000 -v $(pwd)/data:/app/data raminqaf/salsa:1.4 python -m server.app --content-index --partition-method murmur2 --partition-number 1 & \
+docker run --rm -d -p 5003:5000 -v $(pwd)/data:/app/data raminqaf/salsa:1.4 python -m server.app --content-index --partition-method star-space --partition-number 0 & \
+docker run --rm -d -p 5004:5000 -v $(pwd)/data:/app/data raminqaf/salsa:1.4 python -m server.app --content-index --partition-method star-space --partition-number 1
